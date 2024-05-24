@@ -1,0 +1,24 @@
+To calculate the average life expectancy, you can use Python and the pandas library to analyze a dataset containing life expectancy information. Here's an example code snippet based on the provided contexts:
+
+```python
+import pandas as pd
+
+# Load the dataset
+url = 'https://covid.ourworldindata.org/data/owid-covid-data.csv'
+df = pd.read_csv(url, usecols=['location', 'year', 'life_expectancy'])
+
+# Filter the dataset to include only the life expectancy data
+life_exp_data = df[['location', 'year', 'life_expectancy']]
+
+# Calculate the average life expectancy for each country
+average_life_expectancy = life_exp_data.groupby('location')['life_expectancy'].mean()
+
+# Print the results
+print(average_life_expectancy)
+```
+
+This code snippet loads a dataset containing life expectancy information from OurWorldInData.org, filters the dataset to include only the life expectancy data, calculates the average life expectancy for each country using the `groupby` and `mean` functions from pandas, and finally prints the results.
+
+Remember to install the pandas library if you haven't already, using `pip install pandas`.
+
+[source](https://www.reddit.com/r/learnpython/comments/m9kgjr/writing_a_program_to_analyze_dataset_on_life/) [source](https://www.news-medical.net/health/Calculating-Life-Expectancy.aspx)
